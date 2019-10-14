@@ -42,7 +42,7 @@ void delete() {
 int main()
 {
   char input = 0;
-  cout << "Do you want to add, print, or delete a student? (A/P/D)" << endl;
+  cout << "Do you want to add, print, or delete a student? (Add/Print/Delete)" << endl;
   cin >> input;
   if (input == 'A') {
     add();
