@@ -10,14 +10,13 @@ struc student {
   float gpa;
 };
 
-void add() {
-//Method for adding students
+void add() {//Method for adding students
   //Create a new entry for a student
   //After you type add {
-    //Prompt for first name
-    //Prompt for last name
-    //Prompt for student ID
-    //Prompt for GPA
+    cout << "Enter a first name" << endl;
+    cout << "Enter a last name" << endl;
+    cout << "Enter a student ID" << endl;
+    cout << "Enter a GPA" << endl;
     //Add student to vector of students
   //}
 }
@@ -35,7 +34,7 @@ void print() {
 
 void delete() {
 //Method for deleting students
-  //Prompt user for student ID number to delete
+  cout << "Enter the student ID you wish to delete" << endl;
   //Remove that struct from the vector
   //Delete the data
 }
