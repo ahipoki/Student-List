@@ -3,6 +3,13 @@
 
 using namespace std;
 
+struc student {
+  char firstName[];
+  char lastName[];
+  int id;
+  float gpa;
+};
+
 //Method for adding students {
   //Create a new entry for a student
   //After you type add {
