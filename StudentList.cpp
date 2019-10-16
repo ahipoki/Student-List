@@ -10,7 +10,7 @@ struct Student {
   float gpa;
 };
 
-void add() {//Method for adding students
+void addStudent() {//Method for adding students
   //Create a new entry for a student
   Student add;
   //After you type add
@@ -27,7 +27,8 @@ void add() {//Method for adding students
   //Add student to vector of students
 }
 
-void print() {//Method for printing out students
+void printStudent() {//Method for printing out students
+  cout << "Test" << endl;
   //Print out all students currently stored
   //Ex:
   //Jason Galbraith, 487329, 5.00
@@ -36,45 +37,37 @@ void print() {//Method for printing out students
   //GPA shown to 2 decimal places
 }
 
-void remove() {//Method for deleting students
+void removeStudent() {//Method for deleting students
+  int id = 0;
   cout << "Enter the student ID you wish to delete" << endl;
+  cin >> id;
+  cout << "ID: " << id << endl;
   //Remove that struct from the vector
   //Delete the data
 }
 
 int main()
 {
-  char input = 0;
-  //cout << "Do you want to add, print, or delete a student? (Add/Print/Delete)" << endl;
-  //cin >> input;
-  //if (input. == "Add") {
-  //add();
-  //}
-  Student test;
-  cout << "Enter a name" << endl;
-  cin >> test.firstName;
-  cout << "Enter a last name" << endl;
-  cin >> test.lastName;
-  cout << "Enter a student ID" << endl;
-  cin >> test.id;
-  cout << "Enter a GPA" << endl;
-  cin >> test.gpa;
-  cout << "First name: " << test.firstName << endl;
-  cout << "Last name: " << test.lastName << endl;
-  cout << "ID: " << test.id << endl;
-  cout << "GPA: " << test.gpa << endl;
-    //else if (input == "Print") {
-    //print();
-    //}
-    //else if (input == "Delete") {
-    //remove();
-    //}
-    //else {
-    //cout << "That's an invalid input. Please enter either A, P, or D" << endl;
-    //}
-//Vector pointer which points to a vector of struct pointers
-//Read in students
-//Print them out
-//Delete them
-//Finishes with a Quit command
+  bool stillUsing = true;
+  char action = 0;
+  while (stillUsing == true) {
+    char input = 0;
+    cout << "Do you want to add, print, delete a student, or quit? (A/P/D/Q)" << endl;
+    cin >> input;
+    if (input == 'A') {
+      addStudent();
+    }
+    else if (input == 'P') {
+      printStudent();
+    }
+    else if (input == 'D') {
+      removeStudent();
+    }
+    else if (input == 'Q') {
+      stillUsing = false;
+    }
+    else {
+      cout << "That is an invalid option" << endl;
+    }
+  }
 }
