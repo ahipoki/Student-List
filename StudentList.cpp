@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cstring>
+#include <vector>
+#include <iterator>
 
 using namespace std;
 
@@ -13,22 +15,33 @@ struct Student {
 void addStudent() {//Method for adding students
   //Create a new entry for a student
   Student add;
+  std::vector<Student*> vecA;
+  Student* sA = new Student;
   //After you type add
   cout << "Enter a first name" << endl;
-  cin >> add.firstName;
+  //cin >> add.firstName;
+  sA->firstName;
   cout << "Enter a last name" << endl;
-  cin >> add.lastName;
+  //cin >> add.lastName;
+  sA->lastName;
   cout << "Enter a student ID" << endl;
-  cin >> add.id;
+  //cin >> add.id;
+  sA->id = add.id;
   cout << "Enter a GPA" << endl;
-  cin >> add.gpa;
-  cout << add.firstName << "Last name:" << add.lastName << " ID: " << add.id << " GPA:";
-  cout << add.gpa << endl;
+  //cin >> add.gpa;
+  sA->gpa = add.gpa;
+  vecA.push_back(sA);
+  cout << "First name: " << add.firstName << " Last name: " << add.lastName << " ID: " << add.id << " GPA: " << add.gpa << endl;
   //Add student to vector of students
 }
 
 void printStudent() {//Method for printing out students
-  cout << "Test" << endl;
+  vector<Student*> vecP;
+  vector<Student*>::iterator ptr;
+  cout << "Students: ";
+  for (ptr = vecP.begin(); ptr < vecP.end(); ptr++) {
+    cout << *ptr << " ";
+  }
   //Print out all students currently stored
   //Ex:
   //Jason Galbraith, 487329, 5.00
@@ -52,7 +65,7 @@ int main()
   char action = 0;
   while (stillUsing == true) {
     char input = 0;
-    cout << "Do you want to add, print, delete a student, or quit? (A/P/D/Q)" << endl;
+    cout << "Do you want to add a student, print out the students, delete a student, or quit? (A/P/D/Q)" << endl;
     cin >> input;
     if (input == 'A') {
       addStudent();
