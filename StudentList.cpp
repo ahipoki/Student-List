@@ -51,9 +51,14 @@ void printStudent() {//Method for printing out students
 }
 
 void removeStudent() {//Method for deleting students
+  std::vector<Student> del;
+  del.push_back(6);
+  del.push_back(-17);
+  del.push_back(12);
   int id = 0;
   cout << "Enter the student ID you wish to delete" << endl;
   cin >> id;
+  del.erase(del.begin() + id);
   cout << "ID: " << id << endl;
   //Remove that struct from the vector
   //Delete the data
