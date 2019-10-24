@@ -14,6 +14,8 @@ struct Student {
 
 void addStudent(vector<Student*> *vecS) {//Method for adding students
   cout << "Add" << endl;
+  vecS->push_back(new Student());
+  cin.getline(vecS->at(vecS->size()-1)->firstName, 80);
   //Create a new student
   Student* s = new Student;
   //Push into that student
