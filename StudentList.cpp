@@ -34,7 +34,7 @@ void addStudent(vector<Student*> *vecS) {//Method for adding students
 
 void printStudent(vector<Student*> *vecS) {//Method for printing out students
   for (vector<Student*>::iterator i = vecS->begin(); i != vecS->end(); i++) {
-    cout << (*i)->firstName << ' ' << (*i)->lastName << ' ' << (*i)->id << ' ' << (*i)->gpa << ' ' << endl;
+    cout << (*i)->firstName << " " << (*i)->lastName << " " << (*i)->id << " " << (*i)->gpa << " " << endl;
   }
 }
 
@@ -42,7 +42,6 @@ void removeStudent(vector<Student*> *vecS) {//Method for deleting students
   int IdInput = 0;
   cout << "Enter the ID of the student you want to remove" << endl;
   cin >> IdInput;
-  cout << "ID: " << IdInput << endl;
   for (vector<Student*>::iterator i = vecS->begin(); i != vecS->end(); i++) {
     if (IdInput == (*i)->id) {
       delete *i;
@@ -56,8 +55,8 @@ int main()
 {
   bool stillUsing = true;
   char action = 0;
-  std::vector<Student*> *vecS;
-  std::vector<Student*> vecP;
+  vector<Student*> *vecS;
+  vector<Student*> vecP;
 
   Student* sP = new Student;
   struct Student s1 = { 1,2};
