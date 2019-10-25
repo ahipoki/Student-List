@@ -21,13 +21,13 @@ void addStudent(vector<Student*> *vecS) {//Method for adding students
   //Push into that student
   //Push that into the vector
   cout << "Enter a first name: " << endl;
-  cin >> s->firstName;
+  cin >> vecS->firstName;
   cout << "Enter a last name: " << endl;
-  cin >> s->lastName;
+  cin >> vecS->lastName;
   cout << "Enter a student ID: " << endl;
-  cin >> s->id;
+  cin >> vecS->id;
   cout << "Enter a GPA: " << endl;
-  cin >> s->gpa;
+  cin >> vecS->gpa;
   //cout << "First name: " << *s->firstName << " Last name: " << *s->lastName << " ID: " << s->id << " GPA: " << s->gpa << endl;
   //Add student to vector of students
 }
@@ -53,16 +53,16 @@ void removeStudent(vector<Student*> *vecS) {//Method for deleting students
 
 int main()
 {
-  bool stillUsing = true;
+  //bool stillUsing = true;
   char action = 0;
   vector<Student*> *vecS;
-  vector<Student*> vecP;
+  //vector<Student*> vecP;
 
   Student* sP = new Student;
-  struct Student s1 = { 1,2};
-
-  sP = &s1;
-  while (stillUsing == true) {
+  //struct Student s1 = { 1,2};
+  //sP = &s1;
+  
+  while (true) {
     char input[80];
     cout << "Do you want to add a student, print out the students, delete a student, or quit? (ADD/PRINT/DELETE/QUIT)" << endl;
     cin.getline(input, sizeof(input));
@@ -76,7 +76,7 @@ int main()
       removeStudent(vecS);
     }
     else if (strcmp(input, "QUIT") == 0) {
-      stillUsing = false;
+      return false;
     }
     else {
       cout << "That is an invalid option" << endl;
