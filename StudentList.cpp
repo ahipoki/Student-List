@@ -56,14 +56,10 @@ void removeStudent(vector<Student*> *vecS) {//Method for deleting students
 
 int main()
 {
-  //bool stillUsing = true;
   char action = 0;
   vector<Student*> *vecS;
-  //vector<Student*> vecP;
 
   Student* sP = new Student;
-  //struct Student s1 = { 1,2};
-  //sP = &s1;
   
   while (true) {
     char input[80];
