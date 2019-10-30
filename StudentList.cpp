@@ -18,6 +18,9 @@ struct Student {//Struct of students
 
 void addStudent(vector<Student*>*vecS) {//Method for adding students
   vecS->push_back(new Student());
+  bool loopBreak = true;
+  bool newId = false;
+  int idInput;
   //Push back a new student
   cout << "Enter a first name: " << endl;
   //Prompt for a first name
@@ -28,11 +31,33 @@ void addStudent(vector<Student*>*vecS) {//Method for adding students
   cin.getline(vecS->at(vecS->size()-1)->lastName, 10);
   //Get the input and add it to the vector
   do {
-    cout << "Enter a student ID: " << endl;
-    //Prompt for an ID
-    cin >> vecS->at(vecS->size()-1)->id;
-    cin.clear();
-    cin.ignore(1000, '\n');
+    while(loopBreak) {
+      cout << "Enter a student ID: " << endl;
+      //Prompt for an ID
+      cin>>idInput;
+      //cin >> vecS->at(vecS->size()-1)->id;
+      for (vector<Student*>::iterator i = vecS->begin(); i != vecS->end(); i++){
+	if (idInput == (*i)->id){
+	  //newId = false;
+	  while (newId == false) {
+	    cout<<"You cannot have two students with the same ID"<<endl;
+	    cin.clear();
+	    cout<<"Enter a student ID: "<<endl;
+	    cin>>idInput;
+	    if (idInput != (*i)->id){
+	      newId = true;
+	    }
+	  }
+	}
+	else{
+	  vecS->at(vecS->size()-1)->id = idInput;
+	  newId = true;
+	  loopBreak = false;
+	}
+      }
+      cin.clear();
+      cin.ignore(1000, '\n');
+    }
   }while(cin.fail());
   //Get the input and add it to the vector
   do {
