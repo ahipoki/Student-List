@@ -40,7 +40,7 @@ void addStudent(vector<Student*>*vecS) {//Method for adding students
     //Prompt for a GPA
     cin >> vecS->at(vecS->size()-1)->gpa;
     cin.clear();
-    cin.ignore(1000, '\n');
+    //cin.ignore(1000, '\n');
   }while(cin.fail());
   //Get the input and add it to the vector
 }
