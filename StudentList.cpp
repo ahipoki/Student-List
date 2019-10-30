@@ -5,6 +5,13 @@
 
 using namespace std;
 
+/*
+ *Author: Finn McKinley
+ *10/30/19
+ *A list of students to track their name, ID, and gpa
+ *You can add or remove students or print out all students in the vector
+ */
+
 struct Student {//Struct of students
   char firstName[10];
   //First name
@@ -18,10 +25,13 @@ struct Student {//Struct of students
 
 void addStudent(vector<Student*>*vecS) {//Method for adding students
   vecS->push_back(new Student());
-  bool loopBreak = true;
-  bool newId = false;
-  int idInput;
   //Push back a new student
+  bool loopBreak = true;
+  //A bool for a while loop
+  bool newId = false;
+  //If an ID is new or not
+  int idInput;
+  //User's input for ID
   cout << "Enter a first name: " << endl;
   //Prompt for a first name
   cin.getline(vecS->at(vecS->size()-1)->firstName, 10);
@@ -30,29 +40,34 @@ void addStudent(vector<Student*>*vecS) {//Method for adding students
   //Prompt for a last name
   cin.getline(vecS->at(vecS->size()-1)->lastName, 10);
   //Get the input and add it to the vector
-  do {
-    while(loopBreak) {
+  do {//Do while loop around ID for letters
+    while(loopBreak) {//Nested while loop
       cout << "Enter a student ID: " << endl;
       //Prompt for an ID
       cin>>idInput;
-      //cin >> vecS->at(vecS->size()-1)->id;
-      for (vector<Student*>::iterator i = vecS->begin(); i != vecS->end(); i++){
-	if (idInput == (*i)->id){
-	  //newId = false;
-	  while (newId == false) {
+      //Take in user's input
+      for (vector<Student*>::iterator i = vecS->begin(); i != vecS->end(); i++){//Iterator to go through the vector of students
+	if (idInput == (*i)->id){//If the ID entered is already in the vector
+	  while (newId == false) {//While it's not a new ID
 	    cout<<"You cannot have two students with the same ID"<<endl;
+	    //Tell the user they can't have two students with the same ID
 	    cin.clear();
 	    cout<<"Enter a student ID: "<<endl;
+	    //Ask for an ID
 	    cin>>idInput;
-	    if (idInput != (*i)->id){
+	    //Take in the user's input
+	    if (idInput != (*i)->id){//If it is a new ID
 	      newId = true;
+	      //Break out of the loop
 	    }
 	  }
 	}
-	else{
+	else{//If it is a new ID
 	  vecS->at(vecS->size()-1)->id = idInput;
+	  //Add that to the student's ID
 	  newId = true;
 	  loopBreak = false;
+	  //Break out of loops
 	}
       }
       cin.clear();
